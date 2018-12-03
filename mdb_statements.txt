@@ -1,0 +1,51 @@
+use testDB  // create a new database name testDB
+
+db.createCollection("restaurants");  // create a new collection named restaurants
+
+db.restaurants.insert(  // insert the first document in restaurants collection
+   {"address" : {
+         "street" : "2 Avenue", "zipcode" : "10075",
+         "building" : "1480", "coord" : [ -73.9557413, 40.7720266 ] },
+    "borough" : "Manhattan", 
+    "cuisine" : "Italian",
+    "grades" : [
+         {"date" : ISODate("2014-10-01T00:00:00Z"),"grade" : "A", "score" : 11 },
+         {"date" : ISODate("2014-01-16T00:00:00Z"),"grade" : "B", "score" : 17}
+    ],
+    "name" : "Vella",
+    "restaurant_id" : "41704620"
+   }
+)
+
+db.restaurants.insert(
+   {"address": {
+         "building": "1007", "coord": [-73.856077, 40.848447], 
+         "street": "Morris Park Ave", "zip": "10462"}, 
+    "borough": "Bronx", 
+    "cuisine": "Bakery", 
+    "grades": [
+        {"date": ISODate("2014-10-01T00:00:00Z"), "grade": "A", "score": 2}, 
+        {"date": ISODate("2014-10-02T00:00:00Z"), "grade": "A", "score": 6}, 
+        {"date": ISODate("2014-10-03T00:00:00Z"), "grade": "A", "score": 10}, 
+        {"date": ISODate("2014-10-04T00:00:00Z"), "grade": "A", "score": 9}, 
+        {"date": ISODate("2014-10-05T00:00:00Z"), "grade": "B", "score": 14}], 
+    "name": "Morris Park Bake Shop", 
+    "restaurant_id": "30075445"}
+)
+
+db.restaurants.insert(
+   {"address": {
+         "building": "469", "coord": [-73.961704, 40.662942], 
+         "street": "Flatbush Avenue", "zipcode": "11225"}, 
+    "borough": "Brooklyn", 
+    "cuisine": "Hamburgers", 
+    "grades": [
+        {"date": ISODate("2014-10-07T00:00:00Z"), "grade": "A", "score": 8}, 
+        {"date": ISODate("2014-10-08T00:00:00Z"), "grade": "B", "score": 23}, 
+        {"date": ISODate("2014-10-09T00:00:00Z"), "grade": "A", "score": 12}, 
+        {"date": ISODate("2014-10-01T00:00:00Z"), "grade": "A", "score": 12}], 
+    "name": "Wendy'S", 
+    "restaurant_id": "30112340"}
+)
+
+db.restaurants.find().pretty();  //shows the collection in a readable format.
